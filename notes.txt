@@ -1,0 +1,9 @@
+-----Packages------
+To manage routes - react-router-dom
+
+-----Tips------
+1. rafce - Creates a component within the file
+
+-----Points to remember------
+1. In App.tsx, couldn't import the globals.css file. Therefore, globals.d.ts file was created to make the css files available globally.
+
