@@ -6,6 +6,7 @@ To manage routes - react-router-dom
 
 -----Points to remember------
 1. In App.tsx, couldn't import the globals.css file. Therefore, globals.d.ts file was created to make the css files available globally.
+2. Shadcn can override the globals.css and tailwind.config.js files.
 
 -----Libraries------
 q. shadcn - allows to customize pre-designed components with tailwind. (Can only add the components we need. These fall under the components folder)
