@@ -7,6 +7,17 @@ To manage routes - react-router-dom
 -----Points to remember------
 1. In App.tsx, couldn't import the globals.css file. Therefore, globals.d.ts file was created to make the css files available globally.
 2. Shadcn can override the globals.css and tailwind.config.js files.
+3. .env.local allows to add variables that are specific to your local computer.
 
 -----Libraries------
 q. shadcn - allows to customize pre-designed components with tailwind. (Can only add the components we need. These fall under the components folder)
+
+-----Issues-----
+1. In sign up form the logo and the submit button were cut out from the screen. The image wasn't fit to the screen to.
+Therefore,
+    - Added 'overflow-auto no-scrollbar' classes to fit the image to the screen and thereby hide the scrollbar that appeared
+      next to the form.
+    - Added 'flex items-center' to the first div tag to center the form elements.
+    - Added 'mb-4' to the img tag to make the dissappeared logo appear.
+2. Still the import.meta.env wasn't recognized. Therefore, had to add some configurations to tsconfig.json and 
+tsconfig.app.json files
