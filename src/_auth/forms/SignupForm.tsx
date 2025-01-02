@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import { useToast } from "@/hooks/use-toast";
 import {
   Form,
   FormControl,
@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 import { createUserAccount } from "@/lib/appwrite/api";
 
 const SignupForm = () => {
+  const { toast } = useToast();
   const isLoading = false;
   const form = useForm<z.infer<typeof SignUpValidation>>({
     //z.infer dynamically generates a TypeScript type that mirrors the validation schema.
@@ -36,15 +37,19 @@ const SignupForm = () => {
   async function onSubmit(values: z.infer<typeof SignUpValidation>) {
     // creates user
     const newUser = await createUserAccount(values);
-    
-    console.log(newUser);
+
+    if (!newUser) {
+      toast({
+        title: "Sign up failed. Please try again.",
+      });
+    }
   }
 
   return (
     <Form {...form}>
-      <div className="sm:w-420 flex-col flex items-center overflow-auto no-scrollbar"> 
+      <div className="sm:w-420 flex-col flex items-center overflow-auto no-scrollbar">
         {/* Added overflow-auto to remove the overflow */}
-        <img src="/assets/images/logo.svg" className="items-center"/>
+        <img src="/assets/images/logo.svg" className="items-center" />
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-2">
           Create a new account
         </h2>
